@@ -1,0 +1,60 @@
+<div>
+    <form [formGroup]="productFormGroup" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-6">
+                <mat-form-field class="w-100">
+                    <label for="name">
+                        Name
+                    </label>
+                    <input type="text" matInput id="name" formControlName="name">
+                </mat-form-field>
+            </div>
+
+             <div class="col-6">
+                <mat-form-field class="w-100">
+                    <label for="imageurl">
+                        Image Url
+                    </label>
+                    <input type="text" matInput id="imageurl" formControlName="imageurl">
+                </mat-form-field>
+            </div>
+
+        
+            <div class="col-6">
+                <mat-form-field class="w-100">
+                    <label for="brand">
+                        Brand
+                    </label>
+                    <mat-select formControlName="brand">
+                        <mat-option *ngFor="let brand of brands" [value]="brand">{{brand}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+       
+       
+            <div class="col-6">
+                <mat-form-field class="w-100">
+                    <label for="category">
+                        Category
+                    </label>
+                    <mat-select formControlName="category">
+                        <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+             <div class="col-6">
+                <mat-form-field class="w-100">
+                    <label for="price">
+                        Price
+                    </label>
+                    <input type="text" matInput id="price" formControlName="price">
+                </mat-form-field>
+            </div>
+        </div>
+        <button mat-raised-button color="primary" 
+        [disabled]="!productFormGroup.valid"
+        type="submit">Submit</button>
+    </form>
+</div>
+

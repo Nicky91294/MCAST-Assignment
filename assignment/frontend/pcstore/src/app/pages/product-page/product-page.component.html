@@ -1,0 +1,23 @@
+
+<div>
+    <div class="d-flex">
+        <div class="card-deck">
+            <div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">{{product.model}}</h4>
+                            <h6 class="card-subtitle text-muted">Category: {{product.category}}</h6>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="d-flex justify-content-around">
+                                <button mat-raised-button color="warn" (click)="deleteProduct(product.name)" routerLink="/products/">Delete</button>
+                                <button mat-raised-button color="primary" routerLink="/product/{{product.name}}/details">Edit</button>
+                            </div>
+                        </div>
+                    </div>   
+            </div> 
+        </div>       
+    </div>
+    
+</div>

@@ -1,0 +1,72 @@
+<div>
+    <form [formGroup]="productFormGroup" (ngSubmit)="onUpdate()">
+        <div class="row">
+            <div class="col-6">
+                <mat-form-field class="w-100">
+                    <label for="name">
+                        Name
+                    </label>
+                    <input type="text" matInput id="name" value="product.name" [(ngModel)]="product.name" formControlName="name">
+                </mat-form-field>
+            </div>
+
+             <div class="col-6">
+                <mat-form-field class="w-100">
+                    <label for="imageurl">
+                        Image Url
+                    </label>
+                    <input type="text" matInput id="imageurl" [(ngModel)]="product.imageUrl" formControlName="imageurl">
+                </mat-form-field>
+            </div>
+
+            <div class="col-6">
+                <mat-form-field class="w-100">
+                    <label for="model">
+                        Model
+                    </label>
+                    <input type="text" matInput id="model" value="product.model" [(ngModel)]="product.model" formControlName="model">
+                </mat-form-field>
+            </div>
+        
+            <div class="col-6">
+                <mat-form-field class="w-100">
+                    <label for="brand">
+                        Brand
+                    </label>
+                    <mat-select [(ngModel)]="product.brand" formControlName="brand">
+                        <mat-option *ngFor="let brand of brands" [value]="brand" >{{brand}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+       
+       
+            <div class="col-6">
+                <mat-form-field class="w-100">
+                    <label for="category">
+                        Category
+                    </label>
+                    <mat-select [(ngModel)]="product.category" formControlName="category">
+                        <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+             <div class="col-6">
+                <mat-form-field class="w-100" >
+                    <mat-label for="price">
+                        Price
+                    </mat-label>
+                    
+                    <input  matInput id="price" type="text" class="example-right-align" [(ngModel)]="product.price"  formControlName="price">
+                    <span matPrefix>$&nbsp;</span>
+                    <!-- <mat-icon matPrefix>attach_money</mat-icon> -->
+                </mat-form-field>
+            </div>
+        </div>
+        <button mat-raised-button color="primary" 
+        [disabled]="!productFormGroup.valid"
+        type="submit"
+        routerLink="/products/">Update</button>
+    </form>
+</div>
+

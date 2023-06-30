@@ -1,0 +1,20 @@
+<div class="container">
+    <h2><u>Login Form</u></h2>
+    <form class="example-form">
+        <div class="row">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>User Name</mat-label>
+                <input matInput placeholder="Enter your name" name="usename"
+                [(ngModel)] ="username">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Enter your password" value="" name="password" type="password" [(ngModel)]= "password">
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+        <span *ngIf="show"> <button mat-button color="accent">Login success !!</button></span>
+    </form>
+</div>

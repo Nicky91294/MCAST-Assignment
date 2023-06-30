@@ -1,0 +1,63 @@
+<div>
+            <!-- <form [formGroup]="productFormGroup"> -->
+                <div class="row">
+                    <div class="col-6">
+                            <mat-accordion> 
+                                <mat-expansion-panel hideToggle>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            Brand
+                                        </mat-panel-title>
+                                        <mat-panel-description [formGroup]="productFormGroup">
+                                            <span>{{productFormGroup.value.brand}}</span>
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <mat-form-field>
+                                        <mat-label>Brands</mat-label>
+                                        <mat-select>
+                                            <mat-option *ngFor="let brand of brandz"> <button  mat-raised-button [value]="brand" (click)="getProductbyBrand(brand.brand); accordion.closeAll();">{{brand.brand}} </button> <mat-icon (click)="deleteBrand(brand.brand)">remove_circle_outline</mat-icon> </mat-option>       
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>ADD NEW</mat-label>
+                                        <input type="text" matInput [(ngModel)]="newBrand.brand">
+                                    </mat-form-field>
+                                    <button mat-button (click)="submitBrand(); accordion.closeAll();" color="primary"><mat-icon>add_circle_outline</mat-icon></button>
+                                </mat-expansion-panel>
+                            </mat-accordion>  
+                    </div>
+                </div>
+            <!-- </form> -->
+</div>
+
+
+<div class="row">
+    <div class="col-md-3 col-md-pull-9">
+        <ul class="list-unstyled">
+            <h1>Categories</h1>
+            <li *ngFor="let cat of cats"><button mat-raised-button (click)="getProductbyCategory(cat.category)">{{cat.category}}</button><mat-icon (click)="deleteCategory(cat.category)">remove_circle_outline</mat-icon><mat-divider></mat-divider></li>
+        </ul>
+        <mat-form-field>
+            <mat-label>ADD NEW</mat-label>
+            <input type="text" matInput [(ngModel)]="newCategory.category">
+        </mat-form-field>
+        <button mat-button (click)="submitCategory();" color="primary"><mat-icon>add_circle_outline</mat-icon></button>
+    </div>
+    <div class="col-md-9 col-md-push-3">
+        <div class="d-flex">
+            <div class="card-deck">
+                <div *ngFor="let product of products">
+                    <a class="nodeco col-3 p-2" routerLink="/product/{{product.name}}">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">{{product.model}}</h4>
+                                <h6 class="card-subtitle text-muted">Category: {{product.category}}</h6>
+                                <h6 class="card-subtitle text-muted">Brand: {{product.brand}}</h6>
+                            </div>
+                        </div>
+                    </a>    
+                </div> 
+            </div>       
+        </div>
+    </div> 
+</div>
