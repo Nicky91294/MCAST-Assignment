@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MatAccordion } from '@angular/material/expansion';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Brand } from 'src/app/model/brand';
 import { Category } from 'src/app/model/category';
 import { Product } from 'src/app/model/product';
@@ -13,7 +14,7 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './products-page.component.html',
   styleUrls: ['./products-page.component.scss']
 })
-export class ProductsPageComponent implements OnInit {
+export class ProductsPageComponent implements OnInit{
   products!: Product[];
   brands!: Product[];
   categories!:Product[];
@@ -31,6 +32,10 @@ export class ProductsPageComponent implements OnInit {
     category:new FormControl(''),
     price:new FormControl('')
   });
+
+  lowValue: number = 0;
+  highValue: number = 20;
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
   constructor(
     private productService: ProductService,
@@ -61,6 +66,13 @@ export class ProductsPageComponent implements OnInit {
     this.brandService.getAllBrands().subscribe((data)=>this.brandz=data);
   }
 
+  // used to build a slice of papers relevant at any given time
+  public getPaginatorData(event: PageEvent): PageEvent {
+    this.lowValue = event.pageIndex * event.pageSize;
+    this.highValue = this.lowValue + event.pageSize;
+    return event;
+  }
+  
   getProductbyBrand(brand:any){
     this.productService.getProductbyBrand(brand).subscribe(
       (data)=>
@@ -118,6 +130,7 @@ export class ProductsPageComponent implements OnInit {
       });
       
   }
+
 
   @ViewChild(MatAccordion)
   accordion: MatAccordion = new MatAccordion;

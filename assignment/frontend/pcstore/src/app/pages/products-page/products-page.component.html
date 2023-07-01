@@ -44,9 +44,13 @@
         <button mat-button (click)="submitCategory();" color="primary"><mat-icon>add_circle_outline</mat-icon></button>
     </div>
     <div class="col-md-9 col-md-push-3">
+        <mat-paginator [length]="products.length" pageSize=20
+               (page)="getPaginatorData($event)" [pageSizeOptions]="[10, 20, 30]"
+               showFirstLastButtons="false">
+        </mat-paginator>
         <div class="d-flex">
             <div class="card-deck">
-                <div *ngFor="let product of products">
+                <div *ngFor="let product of (products | slice: lowValue : highValue)">
                     <a class="nodeco col-3 p-2" routerLink="/product/{{product.name}}">
                         <div class="card">
                             <div class="card-body">
@@ -59,5 +63,6 @@
                 </div> 
             </div>       
         </div>
+        
     </div> 
 </div>
