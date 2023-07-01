@@ -64,7 +64,7 @@ export class ProductsPageComponent implements OnInit {
   getProductbyBrand(brand:any){
     this.productService.getProductbyBrand(brand).subscribe(
       (data)=>
-      (this.products = data)
+      this.products = data
       );
       this.productFormGroup.setValue({
         brand: brand,

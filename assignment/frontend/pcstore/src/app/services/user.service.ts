@@ -20,5 +20,9 @@ export class UserService {
     getUserByUsername(username: string){
       return this.http.get<User>(`${this.API_BASE}username/${username}`)
     }
+
+    getRole(username: String, password: String){
+      return this.http.get<User[]>(`${this.API_BASE}${username}/${password}`)
+    }
   
 }

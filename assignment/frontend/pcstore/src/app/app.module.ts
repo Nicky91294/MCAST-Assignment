@@ -11,11 +11,12 @@ import { ProductPageComponent } from './pages/product-page/product-page.componen
 import { NewProductPageComponent } from './pages/new-product-page/new-product-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
-import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/material/material/material.module';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { ProductFilterComponent } from './pages/product-filter/product-filter.component';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,13 @@ import { ProductFilterComponent } from './pages/product-filter/product-filter.co
     ReactiveFormsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
