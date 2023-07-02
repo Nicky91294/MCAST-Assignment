@@ -1,8 +1,18 @@
-.nav-link{
+.nav-item{
     font-size: 25px;
     transition: transform .2s;
   }
 
-.nav-link:hover{
+.nav-item:hover{
   transform: scale(1.2);
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+a.nav-link{
+  transition: transform .2s;
+}
+
+a.nav-link:hover{
+  border: 2px solid #DC3545
 }
