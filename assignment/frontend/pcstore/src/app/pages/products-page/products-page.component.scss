@@ -2,3 +2,27 @@
     max-width: 300px;
   }
 
+  .header1{
+    padding-bottom: 50px;
+    padding-top: 10px;
+  }
+
+  mat-icon{
+    transition: transform .2s;
+  }
+
+  mat-icon:hover{
+    cursor: pointer;
+  }
+
+  .categories{
+    max-width: 383px;
+  }
+
+.card-decck{
+  padding-left: 30px;
+}
+
+.addbrand{
+  padding-left: 10px;
+}
