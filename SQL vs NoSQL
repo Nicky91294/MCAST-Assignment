@@ -1,0 +1,13 @@
+SQL - Structured Query Language, this is the programming language used to interface with relational databases. This type of database model data as records in rows and tables with logical links between them. On the other hand NoSQL is a type of database management system that are non-relational and generally do not use SQL
+
+The choice between SQL and NoSQL databases depends on the following factors:
+
+Data Structure: If your data has a well-defined structure and relationships, SQL databases are generally more suitable. They enforce consistency and provide powerful querying capabilities.
+
+Scalability: If you anticipate a need for horizontal scalability or handling massive amounts of data, NoSQL databases are often a better choice. They are designed for distributed environments and can scale horizontally more easily.
+
+Flexibility: NoSQL databases excel when it comes to handling unstructured or evolving data. They allow for flexible schema designs and are a good fit for dynamic and rapidly changing data requirements.
+
+Performance: NoSQL databases often provide faster read and write operations compared to SQL databases. They optimize for specific data models and allow for high-speed data access.
+
+Development Speed: NoSQL databases often have simpler data models and require less upfront design and schema definition, making them faster to develop and iterate upon.
