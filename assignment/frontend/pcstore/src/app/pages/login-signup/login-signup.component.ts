@@ -45,6 +45,7 @@ export class LoginSignupComponent implements OnInit{
     this.userService.getRole(tempuser, temppass).subscribe((data)=> {
       this.user = data;
       this.rolez = this.user[0].role
+      localStorage.setItem('role' , JSON.stringify(this.rolez))
       // console.log(this.user[0].role),
       // console.log(this.loginFormGroup.value)
     });

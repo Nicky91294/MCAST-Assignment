@@ -8,6 +8,8 @@ import { Product } from 'src/app/model/product';
 import { BrandService } from 'src/app/services/brand.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
+// import {rolez}  from "src/app/pages/login-signup/login-signup.component";
+import {LoginSignupComponent} from 'src/app/pages/login-signup/login-signup.component'
 
 @Component({
   selector: 'app-products-page',
@@ -22,6 +24,8 @@ export class ProductsPageComponent implements OnInit{
   newCategory: Category = new Category();
   brandz!: Brand[];
   newBrand: Brand = new Brand();
+  prolez!: LoginSignupComponent["rolez"];
+  
 
 
   productFormGroup = new FormGroup({
@@ -47,8 +51,15 @@ export class ProductsPageComponent implements OnInit{
     this.getData();
     this.getCategoryService();
     this.getBrandService();
+    this.name();
     // this.productService.getBrands().subscribe((data)=>this.brands=data);
     // this.productService.getCategory().subscribe((data)=>this.categories=data);
+    
+  }
+
+  name(){
+    return localStorage.getItem('role')
+
     
   }
 

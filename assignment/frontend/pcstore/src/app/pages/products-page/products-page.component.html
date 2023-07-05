@@ -42,7 +42,7 @@
     <div class="categories col-md-3 col-md-pull-9 border rounded shadow p-3 mb-5 rounded">
         <ul class="list-unstyled">
             <h1>Categories</h1>
-            <li *ngFor="let cat of cats"><button mat-raised-button (click)="getProductbyCategory(cat.category)">{{cat.category}}</button><mat-icon (click)="deleteCategory(cat.category)">remove_circle_outline</mat-icon><mat-divider></mat-divider></li>
+            <li *ngFor="let cat of cats"><button mat-raised-button (click)="getProductbyCategory(cat.category)">{{cat.category}}</button><button disabled="name()== 'client'" ><mat-icon (click)="deleteCategory(cat.category)">remove_circle_outline</mat-icon></button><mat-divider></mat-divider></li>
         </ul>
         <mat-form-field>
             <mat-label>ADD NEW</mat-label>
